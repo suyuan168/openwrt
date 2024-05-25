@@ -1,3 +1,15 @@
+define Device/pangu_l6018
+	$(call Device/FitImage)
+	$(call Device/UbiFit)
+	DEVICE_VENDOR := PANGU
+	DEVICE_MODEL := L6018        
+	DEVICE_DTS_CONFIG := config@cp01-c3
+	BLOCKSIZE := 128k
+	PAGESIZE := 2048
+	SOC := ipq6018
+endef
+TARGET_DEVICES += pangu_l6018
+
 define Device/8devices_mango-dvk
 	$(call Device/FitImageLzma)
 	DEVICE_VENDOR := 8devices

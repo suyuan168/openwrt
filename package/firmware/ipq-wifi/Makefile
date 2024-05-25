@@ -27,6 +27,8 @@ endef
 # <https://wireless.wiki.kernel.org/en/users/drivers/ath10k/boardfiles>
 
 ALLWIFIBOARDS:= \
+	glinet_gl-ax1800 \
+	glinet_gl-axt1800 \
 	8devices_mango \
 	arcadyan_aw1000 \
 	buffalo_wxr-5950ax12 \
@@ -123,7 +125,7 @@ This is package is only necessary for the $(2).
 Do not install it for any other device!
   endef
 
-  define Package/ipq-wifi-$(1)/install-overlay
+  define Package/ipq-wifi-$(1)/install
     $$$$(foreach IPQ_WIFI_BOARD_FILE,$$$$(wildcard $(PKG_BUILD_DIR)/board-$(1).*),\
       $$$$(call ipq-wifi-install-one,$$$$(IPQ_WIFI_BOARD_FILE),$$(1)))
   endef
@@ -149,6 +151,8 @@ endef
 # Board files should follow this name structure:
 #   board-<devicename>.<qca4019|qca9888|qca9889|qca9984|qca99x0|ipq8074>
 
+$(eval $(call generate-ipq-wifi-package,glinet_gl-ax1800,GL.iNet GL-AX1800))
+$(eval $(call generate-ipq-wifi-package,glinet_gl-axt1800,GL.iNet GL-AXT1800))
 $(eval $(call generate-ipq-wifi-package,8devices_mango,8devices Mango))
 $(eval $(call generate-ipq-wifi-package,arcadyan_aw1000,Arcadyan AW1000))
 $(eval $(call generate-ipq-wifi-package,buffalo_wxr-5950ax12,Buffalo WXR-5950AX12))

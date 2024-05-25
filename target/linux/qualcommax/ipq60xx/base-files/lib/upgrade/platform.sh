@@ -33,6 +33,7 @@ EOF
 
 platform_do_upgrade() {
 	case "$(board_name)" in
+	pangu,l6018|\
 	netgear,wax214)
 		nand_do_upgrade "$1"
 		;;

@@ -8,6 +8,8 @@ touch /etc/config/ubootenv
 board=$(board_name)
 
 case "$board" in
+wf,hr6001|\
+pangu,l6018|\
 dynalink,dl-wrx36|\
 netgear,rax120v2|\
 netgear,wax218|\
